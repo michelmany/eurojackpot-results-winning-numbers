@@ -1,18 +1,14 @@
 import React from "react";
-import { Container, Row, Col, Alert } from "react-bootstrap";
 import Header from "./Header";
+import ResultsPage from "./ResultsPage";
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Header />
-      <Container>
-        <Row>
-          <Col md={6}>Teste</Col>
-        </Row>
-      </Container>
+      <ResultsPage />
     </div>
   );
-}
+};
 
 export default App;

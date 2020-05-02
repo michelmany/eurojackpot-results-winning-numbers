@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import logo from "./logo.svg";
 
-const header = () => {
+const Header = () => {
   return (
     <>
       <header className="header">
@@ -15,4 +15,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;
