@@ -4,24 +4,38 @@ import { Table } from "react-bootstrap";
 
 const ResultsTable = ({ results }) => {
   return (
-    <Table bordered={true}>
-      <thead>
-        <tr>
-          <th>Tier</th>
-          <th>Match</th>
-          <th>Winners</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>{`5 Numbers + 2 EuroNumbers`}</td>
-          <td>{`0x`}</td>
-          <td>{`€0`}</td>
-        </tr>
-      </tbody>
-    </Table>
+    <div className="results-table">
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Match</th>
+            <th>Winners</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>{`5 Numbers + 2 EuroNumbers`}</td>
+            <td>{`0x`}</td>
+            <td>{`€0`}</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>{`5 Numbers + 2 EuroNumbers`}</td>
+            <td>{`0x`}</td>
+            <td>{`€0`}</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>{`5 Numbers + 2 EuroNumbers`}</td>
+            <td>{`0x`}</td>
+            <td>{`€0`}</td>
+          </tr>
+        </tbody>
+      </Table>
+    </div>
   );
 };
 
