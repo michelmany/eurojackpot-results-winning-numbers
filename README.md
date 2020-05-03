@@ -1,6 +1,7 @@
 # EuroJackpot Results & Winning Numbers
 
-Simple React / ES6 client for [Lottoland EuroJackpot](https://www.lottoland.com/en/eurojackpot/results-winning-numbers).
+Simple React / ES6 client for [Lottoland EuroJackpot](https://eurojackpot-results.netlify.app).
+
 
 ## Available Scripts
 
