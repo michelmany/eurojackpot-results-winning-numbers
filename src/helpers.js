@@ -36,3 +36,24 @@ export const formatCurrency = (number, currency = "EUR") =>
 
 //== Formats Number with suffix ==//
 export const formatNumber = (number, suffix) => `${number.toLocaleString("en")}${suffix}`;
+
+//== Gets Match values ==//
+export const getMatch = (i) => {
+  const match = [
+    [0, 0],
+    [5, 2],
+    [5, 1],
+    [5, 0],
+    [4, 2],
+    [4, 1],
+    [4, 0],
+    [3, 2],
+    [2, 2],
+    [3, 1],
+    [3, 0],
+    [1, 2],
+    [2, 1],
+  ];
+
+  return match[i];
+};

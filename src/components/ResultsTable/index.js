@@ -1,6 +1,6 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import { formatNumber, formatCurrency, romanize } from "../../helpers";
+import { formatNumber, formatCurrency, romanize, getMatch } from "../../helpers";
 
 const ResultsTable = ({ odds }) => {
   const oddsArray = Object.keys(odds).map((key) => odds[key]);
@@ -23,16 +23,21 @@ const ResultsTable = ({ odds }) => {
           </tr>
         </thead>
         <tbody>
-          {oddsArray.map((odd, index) => (
-            <tr key={index}>
-              <td>{romanize(index + 1)}</td>
-              <td>
-                {5} Numbers&nbsp; + {2} Euronumbers
-              </td>
-              <td>{formatNumber(odd.winners, "x")}</td>
-              <td>{formatCurrency(odd.prize, "EUR")}</td>
-            </tr>
-          ))}
+          {oddsArray.map((odd, i) => {
+            const index = i + 1;
+
+            return (
+              <tr key={index}>
+                <td>{romanize(index)}</td>
+                <td>
+                  {getMatch(index)[0]} Numbers +<br />
+                  {getMatch(index)[1]} Euronumbers
+                </td>
+                <td>{formatNumber(odd.winners, "x")}</td>
+                <td>{formatCurrency(odd.prize, "EUR")}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </div>
