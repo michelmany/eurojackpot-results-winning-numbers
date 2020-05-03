@@ -2,6 +2,12 @@
 
 Simple React / ES6 client for [Lottoland EuroJackpot](https://eurojackpot-results.netlify.app).
 
+**Package manager:** Yarn
+**Compiler:** Babel
+**Bundleer:** Webpack
+**CSS pre processor:** Sass
+**Client Side:** Reactjs
+BEM Methodology
 
 ## Available Scripts
 
