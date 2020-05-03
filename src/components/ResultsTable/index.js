@@ -2,14 +2,10 @@ import React from "react";
 import { Table } from "react-bootstrap";
 import { formatNumber, formatCurrency, romanize, getMatch } from "../../helpers";
 
-const ResultsTable = ({ odds }) => {
+const ResultsTable = ({ odds, currency }) => {
   const oddsArray = Object.keys(odds).map((key) => odds[key]);
   oddsArray.shift(); // Removing the first empty item
   oddsArray.sort((a, b) => a.winners - b.winners); // Sorting by winners
-
-  console.log("--");
-  console.log(oddsArray);
-  console.log("--");
 
   return (
     <div className="results-table">
@@ -34,7 +30,7 @@ const ResultsTable = ({ odds }) => {
                   {getMatch(index)[1]} Euronumbers
                 </td>
                 <td>{formatNumber(odd.winners, "x")}</td>
-                <td>{formatCurrency(odd.prize, "EUR")}</td>
+                <td>{formatCurrency(odd.prize, currency)}</td>
               </tr>
             );
           })}

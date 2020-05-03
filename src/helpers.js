@@ -10,6 +10,40 @@ export const getTimeOnly = (fullDate) => {
   return `${time % 12}${suffix}`;
 };
 
+//== Gets the full date from the date object ==//
+export const getFullDate = (date) => {
+  const yearMonths = {
+    0: "Jan",
+    1: "Feb",
+    2: "Mar",
+    3: "Abr",
+    4: "May",
+    5: "Jun",
+    6: "Jul",
+    7: "Aug",
+    8: "Sep",
+    9: "Oct",
+    10: "Nov",
+    11: "Dec",
+  };
+  const weekDays = {
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+    7: "Sunday",
+  };
+
+  const dateObj = new Date(`${date.month}/${date.day}/${date.year}`);
+  const fullDate = `${weekDays[dateObj.getDay()]} ${date.day >= 1 && date.day <= 9 && "0"}${
+    date.day
+  } ${yearMonths[dateObj.getMonth()]} ${date.year}`;
+
+  return fullDate;
+};
+
 //== Transforms numbers in Roman Numbers ==//
 export const romanize = (num) => {
   const romanNumbers = {
