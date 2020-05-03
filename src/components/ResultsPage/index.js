@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ResultsTable from "../ResultsTable";
+import SidebarBox from "../SidebarBox";
+
+import { getTimeOnly, getDateOnly } from "../../helpers";
 
 const ResultsPage = ({ results }) => {
-  const { odds } = results;
+  const { odds, drawingDate, nr, numbers, euroNumbers } = results;
+  const date = getDateOnly(drawingDate);
+  const time = getTimeOnly(drawingDate);
+
+  console.log(results);
+
   return (
     <section className="results-page">
       <Container>
@@ -14,12 +22,12 @@ const ResultsPage = ({ results }) => {
               <span>EuroJackpot</span> Results for Friday 01 May 2020
             </h4>
             <ul className="results-balls">
-              {results.numbers.map((number) => (
+              {numbers.map((number) => (
                 <li className="results-balls__item" key={number}>
                   {number}
                 </li>
               ))}
-              {results.euroNumbers.map((euroNumber) => (
+              {euroNumbers.map((euroNumber) => (
                 <li className="results-balls__item results-balls__item--extra" key={euroNumber}>
                   {euroNumber}
                 </li>
@@ -32,26 +40,24 @@ const ResultsPage = ({ results }) => {
             <ResultsTable odds={odds} />
           </Col>
           <Col md={4}>
-            <div className="side-bar">
-              <h6>The EuroJackpot numbers for {`01.05.2020`}</h6>
+            <SidebarBox>
+              <h6>The EuroJackpot numbers for {date}</h6>
               <p>
                 <span>
-                  The {`424th`}th draw for the EuroJackpot was held on {`01.05.2020`}
+                  The {nr}th draw for the EuroJackpot was held on {date}
                 </span>
-                , as usual at 9pm in Helsinki.
+                , as usual at {time} in Helsinki.
               </p>
-            </div>
-            <div className="side-bar">
-              <h6>EuroJackpot numbers for {`01.05.2020`}</h6>
+            </SidebarBox>
+            <SidebarBox>
+              <h6>EuroJackpot numbers for {date}</h6>
               <p>
                 The balls used for the draw are made of a synthetic polymer, softer than ping-pong
                 balls. The results are broadcast after the draw, with the draw-machines
                 independently checked by the VTT Technical Research Center of Finland.
               </p>
-              <p>
-                Lottoland published the draw results immediately after the draw on {`01.05.2020`}.
-              </p>
-            </div>
+              <p>Lottoland published the draw results immediately after the draw on {date}.</p>
+            </SidebarBox>
           </Col>
         </Row>
       </Container>
