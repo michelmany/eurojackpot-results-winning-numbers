@@ -1,8 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Table } from "react-bootstrap";
 
-const ResultsTable = ({ results }) => {
+const ResultsTable = ({ odds }) => {
+  const oddsArray = Object.keys(odds).map((key) => odds[key]);
+  console.log("--");
+  console.log(oddsArray);
+  console.log("--");
+
   return (
     <div className="results-table">
       <Table responsive>
@@ -15,32 +19,18 @@ const ResultsTable = ({ results }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{`5 Numbers + 2 EuroNumbers`}</td>
-            <td>{`0x`}</td>
-            <td>{`€0`}</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>{`5 Numbers + 2 EuroNumbers`}</td>
-            <td>{`0x`}</td>
-            <td>{`€0`}</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>{`5 Numbers + 2 EuroNumbers`}</td>
-            <td>{`0x`}</td>
-            <td>{`€0`}</td>
-          </tr>
+          {oddsArray.map((odd, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{`5 Numbers + 2 EuroNumbers`}</td>
+              <td>{`${odd.winners}x`}</td>
+              <td>{`€${odd.prize}`}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
   );
-};
-
-ResultsTable.propTypes = {
-  results: PropTypes.object.isRequired,
 };
 
 export default ResultsTable;

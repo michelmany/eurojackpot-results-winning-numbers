@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ResultsTable from "../ResultsTable";
 
-const ResultsPage = () => {
-  const [results, setResults] = useState({});
-
+const ResultsPage = ({ results }) => {
+  const { odds } = results;
   return (
     <section className="results-page">
       <Container>
@@ -15,19 +14,22 @@ const ResultsPage = () => {
               <span>EuroJackpot</span> Results for Friday 01 May 2020
             </h4>
             <ul className="results-balls">
-              <li className="results-balls__item">6</li>
-              <li className="results-balls__item">11</li>
-              <li className="results-balls__item">12</li>
-              <li className="results-balls__item">21</li>
-              <li className="results-balls__item">41</li>
-              <li className="results-balls__item results-balls__item--extra">1</li>
-              <li className="results-balls__item results-balls__item--extra">2</li>
+              {results.numbers.map((number) => (
+                <li className="results-balls__item" key={number}>
+                  {number}
+                </li>
+              ))}
+              {results.euroNumbers.map((euroNumber) => (
+                <li className="results-balls__item results-balls__item--extra" key={euroNumber}>
+                  {euroNumber}
+                </li>
+              ))}
             </ul>
           </Col>
         </Row>
         <Row>
           <Col md={8}>
-            <ResultsTable results={results} />
+            <ResultsTable odds={odds} />
           </Col>
           <Col md={4}>
             <div className="side-bar">
